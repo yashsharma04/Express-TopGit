@@ -9,7 +9,7 @@ $(function(){
 				var name= $("#search_name");	
 				document.getElementById("list").innerHTML= "" ;
 					$.ajax({
-					url:"http://localhost:8080/getProjects?name="+name.val()+"&page="+page,
+					url:"http://localhost:3000/getProjects?name="+name.val()+"&page="+page,
 					success:function(response){					
 						items = JSON.parse(response);
 						console.log("page1:"+page);
@@ -141,7 +141,7 @@ $(function(){
 					var page = 1;
 						$.ajax({
 						//url:"http://localhost:8080/getProjects?name="+name.val(),
-						url:"http://localhost:8080/getProjects?name="+name.val()+"&page="+page,
+						url:"http://localhost:3000/getProjects?name="+name.val()+"&page="+page,
 						success:function(response){	
 
 							items = JSON.parse(response); 
