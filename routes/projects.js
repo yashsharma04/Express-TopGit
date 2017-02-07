@@ -6,7 +6,6 @@ var fs=require('fs');
 var lodash = require('lodash');
 
 router.get('/getProjects',function(req,response){
-	console.log("Projects.js");
 	if(req.query.name!=null){
 			var name = req.query.name ; 
 			fs.readFile(path.resolve(__dirname + '/../data.json'),'utf8', function (err, data) {	
@@ -22,14 +21,12 @@ router.get('/getProjects',function(req,response){
 					}
 				}
 				var itemsByPage =  [] ;
-				console.log(itemsByName);
 				var page = req.query.page ;
 				var start = (page-1)*10 ;
 				var end = start +10 ; 
 				for(var i=start;i<end && i<itemsByName.length;i++){
 						itemsByPage.push(itemsByName[i]);
 				} 
-				console.log(itemsByPage);
 				response.writeHead(200, {'Content-Type': 'text/plain'});
 				response.write(JSON.stringify(itemsByPage));
 				response.end();
@@ -37,9 +34,7 @@ router.get('/getProjects',function(req,response){
 		});
 		}
 		else {
-			console.log("inside getProjects");
 			fs.readFile(__dirname + '/../data.json','utf8', function (err, data) {	
-			console.log("here get projects")
 			if (err) 
 				console.log(err);
 			else{

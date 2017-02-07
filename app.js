@@ -5,9 +5,9 @@ var app = express();
 
 app.use('/', index);
 app.get('/getProjects',projects);
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.listen(3000, function () {
   console.log('Example app listening on Port 3000!')
-})
+});
 // module.exports = app;
